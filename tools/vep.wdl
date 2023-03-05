@@ -19,7 +19,6 @@ task runVEP {
     String prefix = basename(vcf, ".vcf.gz")
 
     command <<<
-        vcf="~{vcf}"
         vep -i ~{vcf} -o ~{prefix}_vep.vcf.gz \
         --vcf --force_overwrite --database \
         --compress_output bgzip --format vcf \
