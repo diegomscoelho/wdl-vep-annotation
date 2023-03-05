@@ -12,12 +12,17 @@
     {
         "run_vep.vcf_index": "<PATH-TO>/small.vcf.gz.tbi",
         "run_vep.vcf": "<PATH-TO>/small.vcf.gz",
-        "run_vep.chrs": ["4","10","22"]
+        "run_vep.chrs": ["4","10","22"],
+        "run_vep.CADD_REF": "<PATH-TO>/cadd_snv.tsv.gz",
+        "run_vep.CADD_IDX": "<PATH-TO>/cadd_snv.tsv.gz.tbi"
+
     }
     OR
     {
         "run_vep.vcf_index": "<PATH-TO>/small.vcf.gz.tbi",
-        "run_vep.vcf": "<PATH-TO>/small.vcf.gz"
+        "run_vep.vcf": "<PATH-TO>/small.vcf.gz",
+        "run_vep.CADD_REF": "<PATH-TO>/cadd_snv.tsv.gz",
+        "run_vep.CADD_IDX": "<PATH-TO>/cadd_snv.tsv.gz.tbi"
     }
 
     - Zip tools foder to a .zip, i.e:
