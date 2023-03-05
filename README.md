@@ -8,7 +8,18 @@
 
 ```
 # Before running:
-    - Fill run_vep.inputs.json with necessary information.
+    - Fill run_vep.inputs.json with necessary information, i.e:
+    {
+        "run_vep.vcf_index": "<PATH-TO>/small.vcf.gz.tbi",
+        "run_vep.vcf": "<PATH-TO>/small.vcf.gz",
+        "run_vep.chrs": ["4","10","22"]
+    }
+    OR
+    {
+        "run_vep.vcf_index": "<PATH-TO>/small.vcf.gz.tbi",
+        "run_vep.vcf": "<PATH-TO>/small.vcf.gz"
+    }
+
     - Zip tools foder to a .zip, i.e:
     `zip -r tools.zip tools/`
     - Start cromwell-server, i.e:
