@@ -1,0 +1,6 @@
+{
+  "run_vep.chrs": "Array[String]? (optional)",
+  "run_vep.vcf": "File",
+  "run_vep.vcf_index": "File"
+}
+
