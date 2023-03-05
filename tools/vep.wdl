@@ -9,6 +9,8 @@ task runVEP {
     input {
         File vcf
         File vcf_index
+        File CADD_REF
+        File CADD_IDX
         Int memory_gb
         Int disk_size
         Int ncpu
@@ -18,7 +20,20 @@ task runVEP {
 
     command <<<
         vcf="~{vcf}"
-        vep -i ~{vcf} -o ~{prefix}_vep.vcf.gz --vcf --force_overwrite --database --compress_output bgzip --format vcf 
+        vep -i ~{vcf} -o ~{prefix}_vep.vcf.gz \
+        --vcf --force_overwrite --database \
+        --compress_output bgzip --format vcf \
+        --plugin Blosum62 \
+        --plugin CSN \
+        --plugin Carol \
+        --plugin CADD,~{CADD_REF} \
+        --plugin Downstream \
+        --plugin LoFtool \
+        --plugin LOVD \
+        --plugin SingleLetterAA \
+        --plugin SpliceRegion \
+        --plugin TSSDistance
+
         tabix -p vcf ~{prefix}_vep.vcf.gz
 
     >>>

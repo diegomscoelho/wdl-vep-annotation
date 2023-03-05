@@ -19,6 +19,8 @@ workflow run_vep {
     input {
         File vcf
         File vcf_index
+        File CADD_REF
+        File CADD_IDX
         Array[String]? chrs
     }
 
@@ -62,6 +64,8 @@ workflow run_vep {
             input:
                 vcf=splitVCF.split_vcf,
                 vcf_index=splitVCF.split_vcf_index,
+                CADD_REF=CADD_REF,
+                CADD_IDX=CADD_IDX,
                 memory_gb=memory_gb,
                 disk_size=disk_size,
                 ncpu=4
