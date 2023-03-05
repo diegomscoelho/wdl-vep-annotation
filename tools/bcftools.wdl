@@ -52,14 +52,14 @@ task splitVCF {
 
     command <<<
 
-        bcftools view -r ~{chr} ~{vcf} -o split.~{chr}.vcf.gz -O z
-        bcftools index -t split.~{chr}.vcf.gz
+        bcftools view -r ~{chr} ~{vcf} -o out.~{chr}.vcf.gz -O z
+        bcftools index -t out.~{chr}.vcf.gz
 
     >>>
 
     output {
-        File split_vcf = "split.~{chr}.vcf.gz"
-        File split_vcf_index = "split.~{chr}.vcf.gz.tbi"
+        File split_vcf = "out.~{chr}.vcf.gz"
+        File split_vcf_index = "out.~{chr}.vcf.gz.tbi"
     }
 
     runtime {

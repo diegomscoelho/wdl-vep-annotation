@@ -19,7 +19,7 @@ task runVEP {
     String prefix = basename(vcf, ".vcf.gz")
 
     command <<<
-        vep -i ~{vcf} -o ~{prefix}_vep.vcf.gz \
+        vep -i ~{vcf} -o vep-~{prefix}.vcf.gz \
         --vcf --force_overwrite --database \
         --compress_output bgzip --format vcf \
         --plugin Blosum62 \
@@ -33,14 +33,14 @@ task runVEP {
         --plugin SpliceRegion \
         --plugin TSSDistance
 
-        tabix -p vcf ~{prefix}_vep.vcf.gz
+        tabix -p vcf vep-~{prefix}.vcf.gz
 
     >>>
 
     output {
-        File vcf_vep = "~{prefix}_vep.vcf.gz"
-        File vcf_vep_index = "~{prefix}_vep.vcf.gz.tbi"
-        File vcf_vep_summary = "~{prefix}_vep.vcf.gz_summary.html"
+        File vcf_vep = "vep-~{prefix}.vcf.gz"
+        File vcf_vep_index = "vep-~{prefix}.vcf.gz.tbi"
+        File vcf_vep_summary = "vep-~{prefix}.vcf.gz_summary.html"
     }
 
     runtime {
