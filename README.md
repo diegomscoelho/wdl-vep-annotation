@@ -2,25 +2,24 @@
 
 ## Pre-requisites
     * Cromwell (https://github.com/broadinstitute/cromwell/releases)
-    * Docker ((https://docs.docker.com/engine/install/ubuntu/))
+    * Docker (https://docs.docker.com/engine/install/ubuntu/)
 
 ## Usage example
 
 ```
-Before running:
+# Before running:
     - Fill run_vep.inputs.json with necessary information.
     - Zip tools foder to a .zip, i.e:
     `zip -r tools.zip tools/`
-
-## Start cromwell-server, i.e:
-java -jar cromwell-{VERSION}.jar server
+    - Start cromwell-server, i.e:
+    `java -jar cromwell-{VERSION}.jar server`
 
 # Deploy job via:
 
 ## Via swagger - http://localhost:8000/swagger/index.html?url=/swagger/cromwell.yaml
 
-Select POST in /api/workflows/{version}
-Add:
+### Select POST in /api/workflows/{version}
+### Add:
     * workflowInputs (run_vep.inputs.json) - Need to fill
     * workflowInputs (run_vep.wdl)
     * workflowDependencies (tools) - Folder need to be zipped
